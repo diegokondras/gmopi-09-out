@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Nova categoria de produto</h2>
+    <form method="POST" class="categoria-produto-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-sm btn btn-outline-primary">Salvar</button>
+    </form>
+{% endblock %}
