@@ -1,40 +1,33 @@
 from django import forms
-from .models import Post, Comment, CategoriaProduto, Produto, Contato, Endereco, Estoque
+from .models import Fornecedor, CategoriaProduto, Produto, Estoque, PessoaFisica
 
-class PostForm(forms.ModelForm):
-
-    class Meta:
-        model = Post
-        fields = ('title', 'text',)
-
-class CommentForm(forms.ModelForm):
-
-    class Meta:
-        model = Comment
-        fields = ('author', 'text',)
-
+class FornecedorForm(forms.ModelForm):
+	class Meta:
+		model = Fornecedor
+		fields = ('nome', )
 
 class CategoriaProdutoForm(forms.ModelForm):
 
     class Meta:
         model = CategoriaProduto
-        fields = ('Nome',)
-
-
+        fields = ('nome', )
 
 class ProdutoForm(forms.ModelForm):
 	class Meta:
 		model = Produto
-		fields = ('Nome', 'Codigo', 'Codigo_de_barras_EAN', 'Categoria', 'Valor_de_venda', 'Custo_medio',)
-
-
-class ContatoForm(forms.ModelForm):
-	class Meta:
-		model = Contato
-		fields = ('Telefone_comercial', 'Telefone_celular', 'Email', 'Observacao')
-
+		fields = ('nome', 'codigo', 'codigo_barras', 'categoria', 'valor_venda', 'custo_medio', 'data_cadastro', 'unidade_medida', 'ncm','cest', 'peso_liquido', 'peso_bruto', )
 
 class EstoqueForm(forms.ModelForm):
 	class Meta:
 		model = Estoque
-		fields = ('produto', 'Estoque_disponivel', 'Estoque_minimo', 'Estoque_maximo',)
+		fields = ('produto', 'estoque_disponivel', 'estoque_minimo', 'estoque_maximo', 'fornecedor')
+
+class PessoaFisicaForm(forms.ModelForm):
+	class Meta:
+		model = PessoaFisica
+		fields = ('cpf', )
+
+
+
+
+
